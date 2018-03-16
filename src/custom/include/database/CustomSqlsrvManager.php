@@ -12,7 +12,7 @@ class CustomSqlsrvManager extends SqlsrvManager
 {
     public function __construct()
     {
+        parent::__construct();
         $this->type_map['id'] = 'nvarchar(36)';
-        return parent::__construct();
     }
 }
