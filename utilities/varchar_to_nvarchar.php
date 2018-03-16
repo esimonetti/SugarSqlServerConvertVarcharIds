@@ -99,6 +99,12 @@ foreach ($audit_fields as $field) {
     }
 }
 
+if (!empty($tables['fts_wakeup'])) {
+    $columns = $db->get_columns('fts_wakeup');
+    $transformations['fts_wakeup']['id'] = $columns['id'];
+    unset($tables['fts_wakeup']);
+}
+
 $full_module_list = array_merge($beanList, $app_list_strings['moduleList']);
 foreach ($full_module_list as $module => $value) {
     $bean = BeanFactory::newBean($module);
